@@ -1,0 +1,14 @@
+<% layout("layouts/boilerplate", { excludeFooter: true }) %>
+
+<body>
+    <h1>Upload Images</h1>
+
+    <form class="form" method="POST" action="/home/upload/<%= id %>" enctype="multipart/form-data">
+        <!-- Basic Details -->
+        <div class="form-group">
+          <label for="mainImage" class="label">Choose File</label>
+          <input type="file" id="mainImage" name="image[mainImage]" class="input" required>
+        </div> 
+
+        <button class="button">IUpload</button>
+    </form>

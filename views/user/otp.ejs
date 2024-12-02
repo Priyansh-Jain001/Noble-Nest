@@ -1,0 +1,15 @@
+<% layout('layouts/boilerplate', {excludeFooter: true}) %>
+<body class="otp-body">
+    <div class="otp-container">
+        <form method="POST" action="/home/user/otp" class="otp-form">
+            <div class="otp">
+                <h2 class="otph2">Please enter your 6- Digit OTP sent to your Email-id</h2>
+                <div class="otp-input">
+                    <input type="text" required maxlength="6" class="input" name="otp">
+                </div>
+                <br>
+                <button>Verify</button>
+            </div>
+        </form>
+  </div>
+</body>

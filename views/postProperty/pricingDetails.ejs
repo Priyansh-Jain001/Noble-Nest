@@ -1,0 +1,41 @@
+<% layout("layouts/boilerplate", {excludeFooter: true}) %>
+
+<body>
+    
+    <h1>Pricing and Property Type</h1>
+    <form method="POST" action="/home/prop_details" class="form">
+        <div class="form-group">
+            <label for="pricing" class="label">Pricing</label>
+            <input type="number" id="pricing" name="pricing" step="0.01" class="input" required>
+        </div>
+          
+        <div class="form-group">
+            <label for="property_type" class="label">Property Type</label>
+            <select id="property_type" name="property_type" class="select" required>
+                <option value="">Select Type</option>
+                <option value="Flats">Flats</option>
+                <option value="Apartment">Apartment</option>
+                <option value="House">House</option>
+                <option value="Shops&Malls">Shops & Malls</option>
+                <option value="Villa">Villa</option>
+                <option value="Independent-house">Independent House</option>
+                <option value="Bungloo">Bungloo</option>
+                <option value="Buildings">Buildings</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="property_for" class="label">Property For</label>
+            <select id="property_for" name="property_for" class="select" required>
+                <option value="">Select Type</option>
+                <option value="Sell">Sell</option>
+                <option value="Rent">Rent</option>    
+            </select>
+        </div>
+
+          
+          <a href="/home/prop_details"></a><button class="button">Next</button>
+    </form>
+
+    <a href="/home/address"><button class="btn1">Back</button></a>
+</body>

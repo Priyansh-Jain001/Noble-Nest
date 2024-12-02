@@ -1,0 +1,99 @@
+<% layout("layouts/boilerplate") %>
+<section class="view-property">
+
+   <div class="details">
+
+      <div class="details">
+         <div class="thumb">
+   
+            <div class="big-image">
+               <img src= "<%= obj[0].url %>" alt="#">
+            </div>
+            
+            <div class="test">
+            <% for(img of obj){ %>
+               <div class="small-images">
+                  <img src=" <%= img.url %>" alt="#">
+            </div>
+            <% } %>
+            </div>
+            
+         </div>
+   
+      
+ 
+       <h3 class="name"><%= data.title %></h3>
+       <p class="location"><i class="fas fa-map-marker-alt"></i><span><%= data.address.locality %>, <%= data.address.city %>, <%= data.address.country %> - <%= data.address.pincode %></span></p>
+       <div class="info">
+          <p><i class="fas fa-tag"></i><span><%= data.pricing %></span></p>
+          <p><i class="fa-solid fa-user fa-lg" style="color: #307fe6;"></i><span> <%= data.owner.username  %>(owner)</span></p>
+          <p><i class="fa-solid fa-phone" style="color: #3ddb6d;"></i></i><a href="tel:<%= data.contact_no %>" > <%= data.contact_no %> </a></p>
+          <p><i class="fa-solid fa-building" style="color: #6942d7;"></i><span> <%= data.property_type %> </span></p>
+          <p><i class="fa-solid fa-house" style="color: #ecc022;"></i><span><%= data.property_for%></span></p>
+          <p><i class="fa-solid fa-calendar" style="color: #1a70e0;"></i><span> <%= data.date %></span></p>
+       </div>
+       <h3 class="title">details</h3>
+       <div class="flex">
+          <div class="box">
+             <p><i>Rooms :</i><span> <%= data.details.rooms %></span></p>
+             <p><i>Status :</i><span> <%= data.details.status %> </span></p>
+             <p><i>Bedroom :</i><span> <%= data.details.bedroom %> </span></p>
+             <p><i>Bathroom :</i><span> <%= data.details.bathroom %> </span></p>
+             <p><i>Balcony :</i><span> <%= data.details.balcony %> </span></p>
+          </div>
+          <div class="box">
+             <p><i>Carpet Area :</i><span> <%= data.details.carpetArea %> &nbsp; sq.ft </span></p>
+             <p><i>Age :</i><span> <%= data.details.age %> </span></p>
+             <p><i>Furnished :</i><span> <%= data.details.furnished %> </span></p>
+             <p><i>Loan :</i><span> <%= data.details.loan %> </span></p>
+          </div>
+       </div>
+       <h3 class="title">amenities</h3>
+       <div class="flex">
+          <div class="box">
+             <p><i class="fas fa-check"></i><span>Lifts</span></p>
+             <p><i class="fas fa-check"></i><span>Security Guards</span></p>
+             <p><i class="fas fa-times"></i><span>Play Ground</span></p>
+             <p><i class="fas fa-check"></i><span>Gardens</span></p>
+             <p><i class="fas fa-check"></i><span>Water Supply</span></p>
+             <p><i class="fas fa-check"></i><span>Power Backup</span></p>
+          </div>
+          <div class="box">
+             <p><i class="fas fa-check"></i><span>Parking area</span></p>
+             <p><i class="fas fa-times"></i><span>Gym</span></p>
+             <p><i class="fas fa-check"></i><span>Shopping Mall</span></p>
+             <p><i class="fas fa-check"></i><span>Hospital</span></p>
+             <p><i class="fas fa-check"></i><span>Schools</span></p>
+             <p><i class="fas fa-check"></i><span>Market area</span></p>
+          </div>
+       </div>
+       <h3 class="title">Description</h3>
+       <p class="description"> <%= data.description %> </p>
+       <form action="" method="post">
+          <input type="submit" value="save property" name="save" class="inline-btn">
+      </form>
+
+      <% if(currUser && currUser._id.equals(data.owner._id) ){ %>
+         <div class="utility-btns">
+            <div class="utility-btns-edit">
+               <a href="/home/upload/<%=data._id%>">
+                  <input type="submit" value="Upload Image" name="save" class="inline-btn">
+               </a>
+
+               <a href="/home/edit/<%= data._id %>">
+                  <input type="submit" value="Edit" name="save" class="inline-btn">
+               </a>
+            </div>
+
+
+         <div class="utility-btns-delete">
+            <form method="POST" action="/home/<%= data._id %>?_method=DELETE">
+               <button type="submit" class="inline-btn">Delete</button>
+            </form>
+         </div>
+      </div>
+      
+    <% } %>
+   </div>
+ 
+ </section>

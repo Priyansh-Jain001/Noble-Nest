@@ -1,0 +1,220 @@
+<% layout("layouts/boilerplate") %>
+
+<body>
+    <div class="home">
+
+         <section class="center">
+     
+           <form action="/home/search" method="POST">
+              <h3>Find Your Perfect Home</h3>
+              <div class="box">
+                 <p>Enter location <span>*</span></p>
+                 <input type="text" name="location" required maxlength="50" placeholder="Enter City name" class="input">
+              </div>
+              <div class="flex">
+                 <div class="box">
+                    <p>Property type <span>*</span></p>
+                    <select name="property_type" class="input" required>
+                        <option value="">Select Type</option>
+                        <option value="Flats">Flats</option>
+                        <option value="Apartment">Apartment</option>
+                        <option value="House">House</option>
+                        <option value="Shops&Malls">Shops & Malls</option>
+                        <option value="Villa">Villa</option>
+                        <option value="Independent-house">Independent House</option>
+                        <option value="Bungloo">Bungloo</option>
+                        <option value="Buildings">Buildings</option>
+                    </select>
+                 </div>
+                 <div class="box">
+                    <p>How many BHK <span>*</span></p>
+                    <select name="bhk" class="input" required>
+                       <option value="1">1 BHK</option>
+                       <option value="2">2 BHK</option>
+                       <option value="3">3 BHK</option>
+                       <option value="4">4 BHK</option>
+                       <option value="5">5 BHK</option>
+                       <option value="6">6 BHK</option>
+                       <option value="7">7 BHK</option>
+                       <option value="8">8 BHK</option>
+                       <option value="9">9 BHK</option>
+                    </select>
+                 </div>
+                 <div class="box">
+                    <p>Minimum budget <span>*</span></p>
+                    <select name="min_budget" class="input" required>
+                       <option value="500000">5 lac</option>
+                       <option value="1000000">10 lac</option>
+                       <option value="2000000">20 lac</option>
+                       <option value="3000000">30 lac</option>
+                       <option value="4000000">40 lac</option>
+                       <option value="5000000">50 lac</option>
+                       <option value="6000000">60 lac</option>
+                       <option value="7000000">70 lac</option>
+                       <option value="8000000">80 lac</option>
+                       <option value="9000000">90 lac</option>
+                       <option value="10000000">1 Cr</option>
+                       <option value="20000000">2 Cr</option>
+                       <option value="30000000">3 Cr</option>
+                       <option value="40000000">4 Cr</option>
+                       <option value="50000000">5 Cr</option>
+                       <option value="60000000">6 Cr</option>
+                       <option value="70000000">7 Cr</option>
+                       <option value="80000000">8 Cr</option>
+                       <option value="90000000">9 Cr</option>
+                       <option value="100000000">10 Cr</option>
+                       <option value="150000000">15 Cr</option>
+                       <option value="200000000">20 Cr</option>
+                    </select>
+                 </div>
+                 <div class="box">
+                    <p>Maximum budget <span>*</span></p>
+                    <select name="max_budget" class="input" required>
+                       <option value="1000000">10 lac</option>
+                       <option value="2000000">20 lac</option>
+                       <option value="3000000">30 lac</option>
+                       <option value="4000000">40 lac</option>
+                       <option value="5000000">50 lac</option>
+                       <option value="6000000">60 lac</option>
+                       <option value="7000000">70 lac</option>
+                       <option value="8000000">80 lac</option>
+                       <option value="9000000">90 lac</option>
+                       <option value="10000000">1 Cr</option>
+                       <option value="20000000">2 Cr</option>
+                       <option value="30000000">3 Cr</option>
+                       <option value="40000000">4 Cr</option>
+                       <option value="50000000">5 Cr</option>
+                       <option value="60000000">6 Cr</option>
+                       <option value="70000000">7 Cr</option>
+                       <option value="80000000">8 Cr</option>
+                       <option value="90000000">9 Cr</option>
+                       <option value="100000000">10 Cr</option>
+                       <option value="150000000">15 Cr</option>
+                       <option value="200000000">20 Cr</option>
+                    </select>
+                 </div>
+              </div>
+              <input type="submit" value="search property" name="search" class="btn">
+           </form>
+     
+        </section>
+     
+     </div>
+     
+     <!-- home section ends -->
+     
+     <!-- services section starts  -->
+     
+     <section class="services">
+     
+        <h1 class="heading">Our services</h1>
+     
+        <div class="box-container">
+     
+         <a href="/home/listings" class="anchor">
+           <div class="box">
+              <img src="https://res.cloudinary.com/dwzzzllfr/image/upload/v1732470913/icon-1_szxc8j.png" alt="#">
+              <h3>Buy house</h3>
+              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque, incidunt.</p>
+           </div>
+         </a>
+     
+         <a href="/home/listings/rent" class="anchor">
+            <div class="box">
+               <img src="https://res.cloudinary.com/dwzzzllfr/image/upload/v1732470912/icon-2_hc8w0j.png" alt="#">
+               <h3>Rent house</h3>
+               <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque, incidunt.</p>
+            </div>
+         </a>
+
+           <a href="/home/new" class="anchor">
+               <div class="box">
+                  <img src="https://res.cloudinary.com/dwzzzllfr/image/upload/v1732470912/icon-3_q7ohw3.png" alt="#">
+                  <h3>Sell house</h3>
+                  <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque, incidunt.</p>
+               </div>
+            </a>
+  
+            <a href="/home/listings/flats&buildings" class="anchor">
+               <div class="box">
+                  <img src="https://res.cloudinary.com/dwzzzllfr/image/upload/v1732470912/icon-4_kwxdkd.png" alt="#">
+                  <h3>Flats and Buildings</h3>
+                  <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque, incidunt.</p>
+               </div>
+            </a>
+        
+            <a href="/home/listings/shops&malls" class="anchor">
+               <div class="box">
+                  <img src="https://res.cloudinary.com/dwzzzllfr/image/upload/v1732470912/icon-2_hc8w0j.png" alt="#">
+                  <h3>Shops and Malls</h3>
+                  <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque, incidunt.</p>
+               </div>
+            </a>
+     
+            <a href="/home/contactUs" class="anchor">
+               <div class="box" >
+                  <img src="https://res.cloudinary.com/dwzzzllfr/image/upload/v1732470912/icon-6_qwih1e.png" alt="#">
+                  <h3>24/7 Services</h3>
+                  <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque, incidunt.</p>
+               </div>
+            </a>
+     
+        </div>
+     
+     </section>
+     
+     <!-- services section ends -->
+     
+     <!-- listings section starts  -->
+   
+     <section class="listings">
+     
+        <h1 class="heading">Latest Listings</h1>
+     
+        <div class="box-container">
+         
+            <% for(data of allListing) { %>
+               <div class="box">
+                  <div class="admin">
+                     <h3> <%= data.owner.username.charAt(0).toUpperCase() %></h3>
+                     <div>
+                        <p> Owner: <%= data.owner.username.toUpperCase() %></p>
+                        <span> <%=data.date%> </span>
+                     </div>
+                  </div>
+                  <div class="thumb">
+                     <p class="total-images"><i class="far fa-image"></i><span>4</span></p>
+                     <p class="type"><span> <%= data.property_type %></span>  
+                        <span> <%= data.property_for %> </span>
+                     </p>
+                     
+                     <form action="" method="post" class="save">
+                        <button type="submit" name="save" class="far fa-heart"></button>
+                     </form>
+                     <img src=<%= data.mainImage.url  %> alt="#">
+                     
+                     
+                    
+                  </div>
+                  <h3 class="name"><%= data.title%></h3>
+                  <p class="location"><i class="fas fa-map-marker-alt"></i><span> <%= data.address.locality %>,  <%= data.address.city %>,  <%= data.address.country %></span></p> <%= data.address.locality %>
+                  
+                  <div class="flex">
+                     <p><i class="fas fa-bed"></i><span> <%=data.details.bedroom%> </span></p>
+                     <p><i class="fas fa-bath"></i><span> <%=data.details.bathroom%> </span></p>
+                     <p><i class="fas fa-maximize"></i><span> <%=data.details.carpetArea%> </span></p>
+                  </div>
+                  <a href="/home/listings/<%=data._id%>" class="btn">view property</a>
+               </div>
+            <% } %>
+        
+     
+        </div>
+     
+        <div style="margin-top: 2rem; text-align:center;">
+           <a href="/home/listings" class="inline-btn">view all</a>
+        </div>
+        
+     
+     </section>
+</body>

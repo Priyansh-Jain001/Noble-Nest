@@ -1,0 +1,31 @@
+<% layout("layouts/boilerplate", {excludeFooter: true}) %>
+<body></body>
+
+    <section class="form-container">
+
+        <!-- <form method="POST" action="/home/user/signup" >
+        <h3>create an account!</h3>
+        <label for="firstname">First Name</label>
+        <input type="text" name="user[firstname]" required maxlength="50" placeholder="First Name" class="box" id="firstname">
+        <input type="text" name="user[lastname]" required maxlength="50" placeholder="Last Name" class="box">
+        <input type="email" name="user[email]" required maxlength="50" placeholder="enter your email" class="box">
+        <input type="text" name="user[username]" required maxlength="50" placeholder="Username" class="box">
+        <input type="password" name="user[password]" required maxlength="20" placeholder="enter your password" class="box">
+        <p>already have an account? <a href="/home/user/login">Log In</a></p>
+        <button class="btn">Sign Up</button>
+        </form> -->
+
+        <form method="POST" action="/home/user/signotp" >
+            <h3>Create an account!</h3>
+            <label for="firstname">First Name</label>
+            <input type="text" name="user[firstname]" required maxlength="50" placeholder="First Name" class="box" id="firstname">
+            <input type="text" name="user[lastname]" required maxlength="50" placeholder="Last Name" class="box">
+            <input type="email" name="user[email]" required maxlength="50" placeholder="enter your email" class="box">
+            <input type="text" name="user[username]" required maxlength="50" placeholder="Username" class="box">
+            <input type="password" name="user[password]" required maxlength="20" placeholder="enter your password" class="box">
+            <p>Already have an account? <a href="/home/user/login">Log In</a></p>
+            <button class="btn">Sign Up</button>
+            </form>
+    
+    </section>
+</body>

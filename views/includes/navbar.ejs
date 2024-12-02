@@ -1,0 +1,70 @@
+<header class="header">
+
+    <nav class="navbar nav-1">
+       <section class="flex">
+          <a href="/home" class="logo">
+            <!-- <i class="fa-solid fa-house" style="color: #FFD43B;"></i> -->
+             <!-- <img src="https://res.cloudinary.com/dwzzzllfr/image/upload/v1733129771/nobleNest_logo-2_fqmh9j.jpg" alt="#logo" style="width: 30px;"> -->
+            <big>N</big>oble<big>N</big>est</a>
+ 
+          <ul>
+             <li><a href="/home/new" style="border-radius: 1.2rem;">Post Property<i class="fa-solid fa-paper-plane" style="color: #3595e3;"></i></a></li>
+          </ul>
+       </section>
+    </nav>
+ 
+    <nav class="navbar nav-2">
+       <section class="flex">
+          <div id="menu-btn" class="fas fa-bars"></div>
+ 
+          <div class="menu">
+             <ul>
+                <li><a href="#">Buy<i class="fas fa-angle-down"></i></a>
+                   <ul>
+                      <li><a href="/home/listings">House</a></li>
+                      <li><a href="/home/listings/flats&buildings">Flat</a></li>
+                      <li><a href="/home/listings/shops&malls">Shop</a></li>
+                   </ul>
+                </li>
+                <li><a href="#">Sell<i class="fas fa-angle-down"></i></a>
+                   <ul>
+                      <li><a href="/home/new">Post Property</a></li>
+                      <li><a href="#">Dashboard</a></li>
+                   </ul>
+                </li>
+                <li><a href="#">Rent<i class="fas fa-angle-down"></i></a>
+                   <ul>
+                      <li><a href="#">House</a></li>
+                      <li><a href="#">Flat</a></li>
+                      <li><a href="#">Shop</a></li>
+                   </ul>
+                </li>
+                <li><a href="#">Help<i class="fas fa-angle-down"></i></a>
+                   <ul>
+                      <li><a href="/home/about">About Us</a></i></li>
+                      <li><a href="/home/contactUs">Contact Us</a></i></li>
+                      <li><a href="#">FAQ</a></i></li>
+                   </ul>
+                </li>
+             </ul>
+          </div>
+ 
+          <ul>
+             <li><a href="/home/myAccount">My Account<i class="far fa-heart"></i></a></li>
+             <% if(!currUser){ %>
+               <li><a href="#">Account <i class="fas fa-angle-down"></i></a>
+                <ul>
+                  <li><a href="/home/user/login">Login</a></li>
+                  <li><a href="/home/user/signup">Sign Up</a></li>
+               </ul>
+            <% } %>
+                  
+            <% if(currUser){ %>
+               <li><a href="/home/user/logout"><i class="fa-solid fa-user fa-lg" style="color: #97b5dd;"></i> &nbsp; Log Out</a></li>
+            <% } %>
+             </li>
+          </ul>
+       </section>
+    </nav>
+ 
+ </header>

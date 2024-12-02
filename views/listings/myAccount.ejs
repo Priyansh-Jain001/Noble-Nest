@@ -1,0 +1,60 @@
+<% layout("layouts/boilerplate") %>
+
+<body>
+   
+   <% if(allListing.length == 0) { %>
+      <section class="listings">
+         <div class="box-container">
+            <h1  class="heading">No Listing available yet!</h1>
+         </div>
+      </section>
+   <% } %>
+
+   <% if(allListing.length>0){ %>
+
+  
+      <section class="listings">
+
+         <h1 class="heading">all listings</h1>
+      
+         <div class="box-container">
+            
+            <% for(data of allListing) { %>
+               <div class="box">
+                  <div class="admin">
+                     <h3><%= username.charAt(0).toUpperCase() %></h3>
+                     <div>
+                        <p><%= username %></p>
+                        <span> <%= data.date %> <span>
+                     </div>
+                  </div>
+
+                  <div class="thumb">
+                     <p class="total-images"><i class="far fa-image"></i><span>4</span></p>
+                     <p class="type"><span> <%= data.property_type  %></span><span>sale</span></p>
+                     
+                     <form action="" method="post" class="save">
+                        <button type="submit" name="save" class="far fa-heart"></button>
+                     </form>
+                     
+                     <img src=<%=data.mainImage.url%> alt="#">
+                  </div>
+
+                  <h3 class="name"><%= data.title%></h3>
+                  <p class="location"><i class="fas fa-map-marker-alt"></i><span> <%= data.address.locality %>,  <%= data.address.city %>,  <%= data.address.country %> -  <%= data.address.pincode %></span></p> <%= data.address.locality %>
+                  
+                  <div class="flex">
+                     <p><i class="fas fa-bed"></i><span> <%=data.details.bedroom%> </span></p>
+                     <p><i class="fas fa-bath"></i><span> <%=data.details.bathroom%> </span></p>
+                     <p><i class="fas fa-maximize"></i><span> <%=data.details.carpetArea%> </span></p>
+                  </div>
+
+                  <a href="/home/listings/<%=data._id%>" class="btn">view property</a>
+               </div>
+            <% } %>
+         </div>
+
+            
+      </section>
+   <% } %>
+</body>

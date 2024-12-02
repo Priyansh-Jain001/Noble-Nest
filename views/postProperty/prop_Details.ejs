@@ -1,0 +1,74 @@
+<% layout("layouts/boilerplate", {excludeFooter: true}) %>
+
+<body>
+    
+    <form method="POST" action="/home/upload_image" class="form">
+        <div class="form-group">
+            <label for="carpet_area" class="label">Carpet Area (sq.ft)</label>
+            <input type="number" id="carpet_area" name="carpetArea" step="0.01" class="input" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="age" class="label">Age of Property (years)</label>
+            <input type="number" id="age" name="age" class="input" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="rooms" class="label">Total Rooms</label>
+            <input type="number" id="rooms" name="rooms" class="input" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="bedroom" class="label">Bedrooms</label>
+            <input type="number" id="bedroom" name="bedroom" class="input" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="bathroom" class="label">Bathrooms</label>
+            <input type="number" id="bathroom" name="bathroom" class="input" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="balcony"class="label">Balconies</label>
+            <input type="number" id="balcony" name="balcony" class="input" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="hall" class="label">Hall</label>
+            <input type="number" id="hall" name="hall" class="input" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="status" class="label">Status</label>
+            <select id="status" name="status" class="select" required>
+              <option value="">Select Status</option>
+              <option value="Ready-to-Move">Ready to Move</option>
+              <option value="Under-Construction">Under Construction</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="furnished" class="label">Furnished</label>
+            <select id="furnished" name="furnished" class="select" required>
+              <option value="">Select Option</option>
+              <option value="Furnished">Furnished</option>
+              <option value="semi-Furnished">Semi-Furnished</option>
+              <option value="Unfurnished">Unfurnished</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="loan"class="label">Loan Facility Available</label>
+            <select id="loan" name="loan" class="select" required>
+              <option value="">Select Option</option>
+              <option value="Available">Available</option>
+              <option value="Not-Available">Not-Available</option>
+            </select>
+          </div>
+          
+          <!-- Submit -->
+          <button type="submit" class="button">Submit</button>
+    </form>
+
+    <a href="/home/pricing"><button class="btn1">Back</button></a>
+</body>

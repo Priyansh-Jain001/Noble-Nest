@@ -1,0 +1,146 @@
+<% layout("layouts/boilerplate") %>
+<body>
+
+    <h1>Edit form</h1>
+    <form method="POST" action="/home/updateinfo/<%= data._id %>?_method=PUT" class="form">
+             <!-- Basic Details -->
+             <!-- <div> -->
+                <div class="form-group">
+                    <label for="title" class="label">Title</label>
+                    <input type="text" id="title" name="title" class="input" value="<%= data.title %>" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="description" class="label">Description</label>
+                    <textarea id="description" name="description" rows="4" class="textarea" required> <%= data.description %> </textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="contactNo" class="label">Contact No</label>
+                    <input type="text" id="contactNo" name="contact_no" class="input" value="<%= data.contact_no %>"  required>
+                  </div>
+            <!-- </div>  -->
+
+              <!-- Address Details -->
+
+            <!-- <div> -->
+                <div class="form-group">
+                    <label for="locality" class="label">Locality</label>
+                    <input type="text" id="locality" name="locality" class="input" maxlength="21" value="<%= data.address.locality %>" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="city" class="label">City</label>
+                    <input type="text" id="city" name="city" class="input" maxlength="10" value="<%= data.address.city %>" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="country" class="label">Country</label>
+                    <input type="text" id="country" name="country" class="input" value="<%= data.address.country %>" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="pincode" class="label">Pincode</label>
+                    <input type="text" id="pincode" name="pincode" class="input" value="<%= data.address.pincode %>" required>
+                </div>
+            <!-- </div> -->
+
+            <!-- Pricing Details -->
+            <div class="form-group">
+                <label for="pricing" class="label">Pricing</label>
+                <input type="number" id="pricing" name="pricing" step="0.01" class="input" value="<%= data.pricing %>" required>
+            </div>
+              
+            <div class="form-group">
+                <label for="property_type" class="label">Property Type</label>
+                <select id="property_type" name="property_type" class="select" required>
+                    <option value="<%= data.property_type%>"> <%= data.property_type%> </option>
+                    <option value="Flats">Flats</option>
+                    <option value="Apartment">Apartment</option>
+                    <option value="House">House</option>
+                    <option value="Shops&Malls">Shops & Malls</option>
+                    <option value="Villa">Villa</option>
+                    <option value="Independent-house">Independent House</option>
+                    <option value="Bungloo">Bungloo</option>
+                    <option value="Buildings">Buildings</option>
+                </select>
+            </div>
+    
+            <div class="form-group">
+                <label for="property_for" class="label">Property For</label>
+                <select id="property_for" name="property_for" class="select" required>
+                    <option value=" <%= data.property_for%>"><%= data.property_for%></option>
+                    <option value="Sell">Sell</option>
+                    <option value="Rent">Rent</option>    
+                </select>
+            </div>
+
+            <!-- Property Details -->
+            <div class="form-group">
+                <label for="carpet_area" class="label">Carpet Area (sq.ft)</label>
+                <input type="number" id="carpet_area" name="carpetArea" step="0.01" class="input" value="<%= data.details.carpetArea %>" required>
+            </div>
+              
+            <div class="form-group">
+                <label for="age" class="label">Age of Property (years)</label>
+                <input type="number" id="age" name="age" class="input" value="<%= data.details.age %>" required>
+            </div>
+              
+            <div class="form-group">
+                <label for="rooms" class="label">Total Rooms</label>
+                <input type="number" id="rooms" name="rooms" class="input" value="<%= data.details.rooms %>" required>
+            </div>
+              
+            <div class="form-group">
+                <label for="bedroom" class="label">Bedrooms</label>
+                <input type="number" id="bedroom" name="bedroom" class="input" value="<%= data.details.bedroom %>" required>
+            </div>
+              
+            <div class="form-group">
+                <label for="bathroom" class="label">Bathrooms</label>
+                <input type="number" id="bathroom" name="bathroom" class="input" value="<%= data.details.bathroom %>" required>
+            </div>
+              
+            <div class="form-group">
+                <label for="balcony"class="label">Balconies</label>
+                <input type="number" id="balcony" name="balcony" class="input" value="<%= data.details.balcony %>" required>
+            </div>
+              
+            <div class="form-group">
+                <label for="hall" class="label">Hall</label>
+                <input type="number" id="hall" name="hall" class="input" value="<%= data.details.hall %>" required>
+            </div>
+              
+            <div class="form-group">
+                <label for="status" class="label">Status</label>
+                <select id="status" name="status" class="select" required>
+                  <option value="<%= data.details.status%>"><%= data.details.status%></option>
+                  <option value="Ready-to-Move">Ready to Move</option>
+                  <option value="Under-Construction">Under Construction</option>
+                </select>
+            </div>
+              
+            <div class="form-group">
+                <label for="furnished" class="label">Furnished</label>
+                <select id="furnished" name="furnished" class="select" required>
+                  <option value="<%= data.details.furnished%>"> <%= data.details.furnished%></option>
+                  <option value="Furnished">Furnished</option>
+                  <option value="semi-Furnished">Semi-Furnished</option>
+                  <option value="Unfurnished">Unfurnished</option>
+                </select>
+            </div>
+              
+            <div class="form-group">
+                <label for="loan"class="label">Loan Facility Available</label>
+                <select id="loan" name="loan" class="select" required>
+                  <option value="<%= data.details.loan%>"><%= data.details.loan%></option>
+                  <option value="Available">Available</option>
+                  <option value="Not-Available">Not-Available</option>
+                </select>
+            </div>
+
+            <div>
+                <button class="btn">Update Details</button>
+            </div>
+    </form>
+</body>

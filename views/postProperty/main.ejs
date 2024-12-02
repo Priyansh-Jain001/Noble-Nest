@@ -1,0 +1,175 @@
+<% layout("layouts/boilerplate") %>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    .form {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    .label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    .input, .select, .textarea {
+      width: 100%;
+      padding: 8px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .textarea {
+      resize: vertical;
+    }
+    .button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      color: #fff;
+      background-color: #007BFF;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Property Details Form</h1>
+<form class="form">
+  <!-- Basic Details -->
+  <div class="form-group">
+    <label for="title" class="label">Title</label>
+    <input type="text" id="title" name="title" class="input" required>
+  </div>
+  
+  <div class="form-group">
+    <label for="description" class="label">Description</label>
+    <textarea id="description" name="description" rows="4" class="textarea" required></textarea>
+  </div>
+  
+  <!-- Location Details -->
+  <div class="form-group">
+    <label for="locality" class="label">Locality</label>
+    <input type="text" id="locality" name="locality" class="input" required>
+  </div>
+  
+  <div class="form-group">
+    <label for="city" class="label">City</label>
+    <input type="text" id="city" name="city" class="input" required>
+  </div>
+  
+  <div class="form-group">
+    <label for="country" class="label">Country</label>
+    <input type="text" id="country" name="country" class="input" required>
+  </div>
+  
+  <div class="form-group">
+    <label for="pincode" class="label">Pincode</label>
+    <input type="text" id="pincode" name="pincode" class="input" required>
+  </div>
+  
+  <!-- Pricing -->
+  <div class="form-group">
+    <label for="pricing" class="label">Pricing</label>
+    <input type="number" id="pricing" name="pricing" step="0.01" class="input" required>
+  </div>
+  
+  <div class="form-group">
+    <label for="property_type" class="label">Property Type</label>
+    <select id="property_type" name="property_type" class="select" required>
+      <option value="">Select Type</option>
+      <option value="apartment">Apartment</option>
+      <option value="villa">Villa</option>
+      <option value="independent-house">Independent House</option>
+    </select>
+  </div>
+  
+  <div class="form-group">
+    <label for="date" class="label">Date</label>
+    <input type="date" id="date" name="date" class="input" required>
+  </div>
+  
+  <!-- Details -->
+  <div class="form-group">
+    <label for="carpet_area" class="label">Carpet Area (sq.ft)</label>
+    <input type="number" id="carpet_area" name="carpet_area" step="0.01" class="input" required>
+  </div>
+  
+  <div class="form-group">
+    <label for="age" class="label">Age of Property (years)</label>
+    <input type="number" id="age" name="age" class="input" required>
+  </div>
+  
+  <div class="form-group">
+    <label for="rooms" class="label">Total Rooms</label>
+    <input type="number" id="rooms" name="rooms" class="input" required>
+  </div>
+  
+  <div class="form-group">
+    <label for="bedroom" class="label">Bedrooms</label>
+    <input type="number" id="bedroom" name="bedroom" class="input" required>
+  </div>
+  
+  <div class="form-group">
+    <label for="bathroom" class="label">Bathrooms</label>
+    <input type="number" id="bathroom" name="bathroom" class="input" required>
+  </div>
+  
+  <div class="form-group">
+    <label for="balcony"class="label">Balconies</label>
+    <input type="number" id="balcony" name="balcony" class="input" required>
+  </div>
+  
+  <div class="form-group">
+    <label for="hall" class="label">Hall</label>
+    <input type="number" id="hall" name="hall" class="input" required>
+  </div>
+  
+  <div class="form-group">
+    <label for="status" class="label">Status</label>
+    <select id="status" name="status" class="select" required>
+      <option value="">Select Status</option>
+      <option value="ready-to-move">Ready to Move</option>
+      <option value="under-construction">Under Construction</option>
+    </select>
+  </div>
+  
+  <div class="form-group">
+    <label for="furnished" class="label">Furnished</label>
+    <select id="furnished" name="furnished" class="select" required>
+      <option value="">Select Option</option>
+      <option value="furnished">Furnished</option>
+      <option value="semi-furnished">Semi-Furnished</option>
+      <option value="unfurnished">Unfurnished</option>
+    </select>
+  </div>
+  
+  <div class="form-group">
+    <label for="loan"class="label">Loan Facility Available</label>
+    <select id="loan" name="loan" class="select" required>
+      <option value="">Select Option</option>
+      <option value="yes">Yes</option>
+      <option value="no">No</option>
+    </select>
+  </div>
+  
+  <!-- Submit -->
+  <button type="submit" class="button">Submit</button>
+</form>
+
+</body>
+

@@ -1,0 +1,30 @@
+<% layout("layouts/boilerplate", {excludeFooter: true}) %>
+<body>
+
+    <h1>Address Details</h1>
+    <form method="POST" action="/home/pricing" class="form">
+        <div class="form-group">
+            <label for="locality" class="label">Locality</label>
+            <input type="text" id="locality" name="locality" class="input" maxlength="21" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="city" class="label">City</label>
+            <input type="text" id="city" name="city" class="input" maxlength="10" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="country" class="label">Country</label>
+            <input type="text" id="country" name="country" class="input" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="pincode" class="label">Pincode</label>
+            <input type="text" id="pincode" name="pincode" class="input" required>
+          </div>
+
+          <button class="button">Next</button>
+    </form>
+
+    <a href="/home/new"><button class="btn1">Back</button></a>
+</body>
