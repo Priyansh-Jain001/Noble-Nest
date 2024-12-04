@@ -42,6 +42,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 // Connect our mongodb online(mongo atlas)
 let DB_URL = process.env.ATLASDB_URL;
+// let url = "mongodb://127.0.0.1:27017/RealEstateMain"
 
 
 
