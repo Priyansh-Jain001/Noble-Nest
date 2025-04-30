@@ -6,15 +6,15 @@
          <section class="center">
      
            <form action="/home/search" method="POST">
-              <h3>Find Your Perfect Home</h3>
+              <h3>Find the space that defines you</h3>
               <div class="box">
                  <p>Enter location <span>*</span></p>
                  <input type="text" name="location" required maxlength="50" placeholder="Enter City name" class="input">
               </div>
               <div class="flex">
                  <div class="box">
-                    <p>Property type <span>*</span></p>
-                    <select name="property_type" class="input" required>
+                    <p>Property type <span></span></p>
+                    <select name="property_type" class="input" >
                         <option value="">Select Type</option>
                         <option value="Flats">Flats</option>
                         <option value="Apartment">Apartment</option>
@@ -94,7 +94,7 @@
                     </select>
                  </div>
               </div>
-              <input type="submit" value="search property" name="search" class="btn">
+              <input type="submit" value="search property" name="search" class="btn submit-btn">
            </form>
      
         </section>
@@ -115,7 +115,7 @@
            <div class="box">
               <img src="https://res.cloudinary.com/dwzzzllfr/image/upload/v1732470913/icon-1_szxc8j.png" alt="#">
               <h3>Buy house</h3>
-              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque, incidunt.</p>
+              <p>Buy your dream house today—affordable, secure, modern, and trusted homes.</p>
            </div>
          </a>
      
@@ -123,7 +123,7 @@
             <div class="box">
                <img src="https://res.cloudinary.com/dwzzzllfr/image/upload/v1732470912/icon-2_hc8w0j.png" alt="#">
                <h3>Rent house</h3>
-               <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque, incidunt.</p>
+               <p>Spacious, affordable rental home with modern amenities in prime location.</p>
             </div>
          </a>
 
@@ -131,7 +131,7 @@
                <div class="box">
                   <img src="https://res.cloudinary.com/dwzzzllfr/image/upload/v1732470912/icon-3_q7ohw3.png" alt="#">
                   <h3>Sell house</h3>
-                  <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque, incidunt.</p>
+                  <p>Modern, spacious home with garden—perfect for family living. Call today!</p>
                </div>
             </a>
   
@@ -139,7 +139,7 @@
                <div class="box">
                   <img src="https://res.cloudinary.com/dwzzzllfr/image/upload/v1732470912/icon-4_kwxdkd.png" alt="#">
                   <h3>Flats and Buildings</h3>
-                  <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque, incidunt.</p>
+                  <p>Spacious, modern flats and buildings designed for comfort and convenience.</p>
                </div>
             </a>
         
@@ -147,7 +147,7 @@
                <div class="box">
                   <img src="https://res.cloudinary.com/dwzzzllfr/image/upload/v1732470912/icon-2_hc8w0j.png" alt="#">
                   <h3>Shops and Malls</h3>
-                  <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque, incidunt.</p>
+                  <p>Discover a variety of shops and malls. Experience the finest!</p>
                </div>
             </a>
      
@@ -155,7 +155,7 @@
                <div class="box" >
                   <img src="https://res.cloudinary.com/dwzzzllfr/image/upload/v1732470912/icon-6_qwih1e.png" alt="#">
                   <h3>24/7 Services</h3>
-                  <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque, incidunt.</p>
+                  <p>Offering round-the-clock, 24/7 service to ensure uninterrupted support, anytime.</p>
                </div>
             </a>
      
@@ -173,46 +173,44 @@
      
         <div class="box-container">
          
-            <% for(data of allListing) { %>
-               <div class="box">
-                  <div class="admin">
-                     <h3> <%= data.owner.username.charAt(0).toUpperCase() %></h3>
-                     <div>
-                        <p> Owner: <%= data.owner.username.toUpperCase() %></p>
-                        <span> <%=data.date%> </span>
-                     </div>
+         <% for (let i = 0; i < Math.min(allListing.length, 6); i++) { %>
+            <div class="box">
+               <div class="admin">
+                  <h3> <%= allListing[i].owner.username.charAt(0).toUpperCase() %></h3>
+                  <div>
+                     <p>Presented by <%= allListing[i].owner.firstname%></p>
+                     <span> <%= allListing[i].date %> </span>
                   </div>
-                  <div class="thumb">
-                     <p class="total-images"><i class="far fa-image"></i><span>4</span></p>
-                     <p class="type"><span> <%= data.property_type %></span>  
-                        <span> <%= data.property_for %> </span>
-                     </p>
-                     
-                     <form action="" method="post" class="save">
-                        <button type="submit" name="save" class="far fa-heart"></button>
-                     </form>
-                     <img src=<%= data.mainImage.url  %> alt="#">
-                     
-                     
-                    
-                  </div>
-                  <h3 class="name"><%= data.title%></h3>
-                  <p class="location"><i class="fas fa-map-marker-alt"></i><span> <%= data.address.locality %>,  <%= data.address.city %>,  <%= data.address.country %></span></p> <%= data.address.locality %>
-                  
-                  <div class="flex">
-                     <p><i class="fas fa-bed"></i><span> <%=data.details.bedroom%> </span></p>
-                     <p><i class="fas fa-bath"></i><span> <%=data.details.bathroom%> </span></p>
-                     <p><i class="fas fa-maximize"></i><span> <%=data.details.carpetArea%> </span></p>
-                  </div>
-                  <a href="/home/listings/<%=data._id%>" class="btn">view property</a>
                </div>
-            <% } %>
-        
+               <div class="thumb">
+                  <p class="total-images"><i class="far fa-image"></i><span><%= allListing[i].images.length %></span></p>
+                  <p class="type"><span> <%= allListing[i].property_type %></span>  
+                     <span> <%= allListing[i].property_for %> </span>
+                  </p>
+                  
+                  <!-- <form action="" method="post" class="save">
+                     <button type="submit" name="save" class="far fa-heart"></button>
+                  </form> -->
+                  <img src=<%= allListing[i].mainImage.url  %> alt="#">
+               </div>
+         
+               <h3 class="name"><%= allListing[i].title %></h3>
+               <p class="location"><i class="fas fa-map-marker-alt"></i><span> <%= allListing[i].address.locality %>, <%= allListing[i].address.city %>, <%= allListing[i].address.country %></span></p>
+         
+               <div class="flex">
+                  <p><i class="fas fa-bed"></i><span> <%= allListing[i].details.bedroom %> </span></p>
+                  <p><i class="fas fa-bath"></i><span> <%= allListing[i].details.bathroom %> </span></p>
+                  <p><i class="fas fa-maximize"></i><span> <%= allListing[i].details.carpetArea %> sq.ft </span></p>
+               </div>
+               <a href="/home/listings/<%= allListing[i]._id %>" class="a-btn">Take a look  &nbsp; <i class="fa-solid fa-arrow-right-long" style="color: #11828d;"></i></a>
+            </div>
+         <% } %>
+         
      
         </div>
      
         <div style="margin-top: 2rem; text-align:center;">
-           <a href="/home/listings" class="inline-btn">view all</a>
+           <a href="/home/listings" class="inline-btn view-btn">view all</a>
         </div>
         
      

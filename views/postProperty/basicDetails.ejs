@@ -1,7 +1,7 @@
 <% layout("layouts/boilerplate", { excludeFooter: true }) %>
 
 <body>
-    <h1> Basic Details</h1>
+    <h1 style="text-align: center; margin: 2rem 0;"> Basic Details</h1>
 
     <form class="form" method="POST" action="/home/address">
         <!-- Basic Details -->
@@ -17,12 +17,12 @@
 
         <div class="form-group">
           <label for="contactNo" class="label">Contact No</label>
-          <input type="text" id="contactNo" name="contact_no" class="input" required>
+          <input type="number" id="contactNo" name="contact_no" class="input" required>
         </div>
 
 
         <button class="button">Next</button>
     </form>
 
-    <a href="/home"><button class="btn1">Back</button></a>
+    <a href="/home" style="display: flex; justify-content: center; margin-top: 2rem;"><button class="btn1">Back</button></a>
 </body>

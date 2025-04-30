@@ -1,22 +1,83 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400&display=swap');
-/* 
-body{
+/* @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400&display=swap');
+*/
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&display=swap');
+p, .description {
+   font-family: 'Cormorant Garamond', serif;
+ }
+ 
+/* body{
    font-family: "Plus Jakarta Sans", sans-serif !important;
    display: flex;
    flex-direction: column;
    min-height: 100vh;
-} */
+}   */
+
+@import url('https://fonts.googleapis.com/css2?family=Almendra+SC&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Rubik+Distressed&family=Rubik+Gemstones&display=swap');
+
+/* Apply to body text – clean and modern */
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  color: #333;
+}
+
+/* Apply to main headings – luxurious serif style */
+h1, h2, h3, .title {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+}
+
+/* For subheadings or detail-rich sections – traditional and elegant */
+.subheading, blockquote, .content-heading {
+  font-family: 'Merriweather', serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+/* For logos or decorative use – bold and vintage */
+.logo, .hero-text {
+  font-family: 'Almendra SC', serif;
+  font-weight: 400;
+  font-size: 2rem;
+  letter-spacing: 1px;
+}
+
+/* For creative, playful text (e.g., promotional banners) */
+.decorative {
+  font-family: 'Rubik Distressed', cursive;
+}
+
+.funky {
+  font-family: 'Rubik Gemstones', cursive;
+}
 
 
-:root{
+
+/* :root{
    --main-color:#DA2C32;
+   --detail-color: #00DEB6;
    --light-color:#666;
-   --light-bg:#eee;
+   --light-bg:#F4F4F4;
    --white:#fff;
    --black:#303030;
    --border:.1rem solid var(--light-color);
    --box-shodow:0 .5rem 1rem rgba(0,0,0,.1);
-}
+} */
+
+:root {
+   --main-color: #3E2C41;         /* Deep Plum – luxurious and mysterious */
+   --detail-color: #CBA135;       /* Antique Gold – classic royal accent */
+   --light-color: #AFAFAF;        /* Subtle Silver – soft highlight */
+   --light-bg: #F7F4F1;           /* Porcelain White – refined and clean */
+   --white: #FFFFFF;              /* Standard white */
+   --black: #1A1A1A;              /* Jet Black – deep base tone */
+   --dark: #2B2D2F          
+   --border: 0.1rem solid var(--light-color);
+   --box-shodow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2); /* Richer shadow for depth */
+ }
+
+
+ 
+ 
 
 *{
    font-family: 'Montserrat', sans-serif;
@@ -83,9 +144,9 @@ section{
 }
 
 .btn:hover,
-.inline-btn:hover{
+/* .inline-btn:hover{
    background-color: var(--black);
-}
+} */
 
 .btn{
    display: block;
@@ -205,6 +266,7 @@ section{
    display: flex;
    align-items: center;
    justify-content: center;
+   
 }
 
 .home .center form{
@@ -212,6 +274,8 @@ section{
    padding: 2rem;
    box-shadow: var(--box-shodow);
    width: 50rem;
+   border: 1px solid black;
+   border-radius: 20px;
 }
 
 .home .center form h3{
@@ -226,30 +290,45 @@ section{
    display: flex;
    gap:1rem;
    flex-wrap: wrap;
+   
 }
 
 .home .center form .box{
+   
    flex: 1 1 20rem;
 }
 
 .home .center form .box .input{
    width: 100%;
-   border: var(--border);
+   border: 0.2px solid black;
    padding: 1.4rem;
    color: var(--black);
    font-size: 1.8rem;
    margin: 1rem 0;
 }
 
+.home .center form .box .input:focus{
+   border: 2px solid black;
+}
+
 .home .center form .box p{
-   color: var(--light-color);
-   font-size: 1.7rem;
+   color: black;
+   font-size: 2rem;
+   font-weight: 600;
    padding-top: 1rem;
+   letter-spacing: 0.5px;
 }
 
 .home .center form .box p span{
    color: var(--main-color);
 }
+
+.submit-btn{
+   background-color: #0247F5;
+   /* border: 1px solid white;
+   border-radius: 10px; */
+}
+
 
 .services .box-container{
    display: grid;
@@ -281,7 +360,7 @@ section{
 .services .box-container .box p{
    line-height: 2;
    font-size: 1.6rem;
-   color: var(--light-color);
+   color: var(--main-color);
    padding-top: .5rem;
 }
 
@@ -339,10 +418,14 @@ section{
    height: 100%;
    width: 100%;
    transition: .2s linear;
+   border: 1px solid black;
+   border-radius: 10px;
 }
 
-.listings .box-container .box:hover .thumb img{
+.listings .box-container .box .thumb img:hover {
    transform: scale(1.1);
+   border: 1px solid black;
+   border-radius: 10px;
 }
 
 .listings .box-container .box .thumb .total-images{
@@ -368,9 +451,15 @@ section{
 .listings .box-container .box .thumb .type span{
    margin-right: .7rem;
    padding: .5rem 1.5rem;
-   color: var(--white);
-   background-color: var(--main-color);
+   /* color: var(--white);
+   background-color: var(--main-color); */
    font-size: 1.6rem;
+   background-color: #01cea8;
+   color: #000433;
+   font-size: 16px;
+   font-weight: 500;
+   border: 1px solid black;
+   border-radius: 5px;
 }
 
 .listings .box-container .box .thumb .save{
@@ -387,9 +476,11 @@ section{
    cursor: pointer;
 }
 
-.listings .box-container .box .thumb .save button:hover{
+/* .listings .box-container .box .thumb .save button:hover{
    background-color: var(--main-color);
-}
+} */
+
+
 
 .listings .box-container .box .name{
    font-size: 2rem;
@@ -433,6 +524,33 @@ section{
 .listings .box-container .box .flex p i{
    margin-right: 1rem;
    color: var(--main-color);
+}
+
+.listings .box-container .box .a-btn{
+   /* background-color: #0247F5; */
+   font-size: large;
+   font-weight: 400;
+   color: #11828D;
+}
+
+/* .listings .box-container .box .a-btn:hover{
+   
+} */
+
+.view-btn{
+   background-color: #00DEB6;
+   color: #000433;
+   font-size: large;
+   font-weight: 800;
+   border: 4px solid white;
+   border-radius: 20px ;
+   transition: .1s linear;
+}
+
+.view-btn:hover{
+   transform:scale(1.1);
+   box-sizing: border-box;
+   
 }
 
 .view-property{
@@ -504,7 +622,7 @@ section{
 .view-property .details .location{
    padding-top: 1rem;
    font-size: 1.6rem;
-   color: var(--light-color);
+   color: var(--black-color);
 }
 
 .view-property .details .location i{
@@ -529,7 +647,7 @@ section{
 
 .view-property .details .info p span,
 .view-property .details .info p a{
-   color: var(--light-color);
+   color: var(--dark);
 }
 
 .view-property .details .info p a:hover{
@@ -538,7 +656,7 @@ section{
 
 .view-property .details .info p i{
    margin-right: 1.5rem;
-   color: var(--main-color);
+   color: var(--detail-color);
 }
 
 .view-property .details .title{
@@ -562,20 +680,22 @@ section{
 .view-property .details .flex .box p{
    padding: .5rem 0;
    font-size: 1.6rem;
-   color: var(--light-color);
+   color: var(--dark);
 }
 
 .view-property .details .flex .box i{
-   color: var(--main-color);
+   color: var(--detail-color);
    margin-right: 1.5rem;
 }
 
 .view-property .details .description{
    padding: .5rem 0;
    margin-top: .5rem;
-   font-size: 1.6rem;
-   color: var(--light-color);
+   font-size: 2rem;
+   color: var(--dark);
    line-height: 1.5;
+   font-weight: 400;
+   /* letter-spacing: 1.2px; */
 }
 
 .about .row{
@@ -608,8 +728,9 @@ section{
 .about .row .content p{
    line-height: 2;
    padding: 1rem 0;
-   font-size: 1.7rem;
-   color: var(--light-color);
+   font-size: 1.8rem;
+   font-weight: 700;
+   color: blaCK;
 }
 
 .steps .box-container{
@@ -695,6 +816,7 @@ section{
    flex-wrap: wrap;
    gap: 1.5rem;
    align-items: center;
+   
 }
 
 .contact .row .image{
@@ -710,6 +832,8 @@ section{
    background-color: var(--white);
    box-shadow: var(--box-shodow);
    padding: 2rem;
+   border: 0px solid black;
+   border-radius: 10px;
 }
 
 .contact .row form h3{
@@ -727,6 +851,7 @@ section{
    color: var(--black);
    font-size: 1.8rem;
    margin: 1rem 0;
+   border: 1px solid black;
 }
 
 .contact .row form textarea{
@@ -761,7 +886,7 @@ section{
 
 .faq .box-container .box p{
    font-size: 1.6rem;
-   color: var(--light-color);
+   color:black;
    background-color: var(--white);
    padding: 1.5rem 2rem;
    line-height: 1.5;
@@ -857,6 +982,8 @@ section{
    box-shadow: var(--box-shodow);
    padding: 2rem;
    text-align: center;
+   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+   border-radius: 10px;
 }
 
 .form-container form h3{
@@ -873,20 +1000,31 @@ section{
    margin: 1rem 0;
    width: 100%;
    font-size: 1.8rem;
+   border: 1px solid black;
 }
 
 .form-container form p{
-   font-size: 1.7rem;
+   font-size: 2rem;
    padding: 1rem 0;
-   color: var(--light-color);
+   color: black;
+   font-weight: 200;
 }
 
 .form-container form p a{
-   color: var(--main-color);
+   color: #0056b3;
+   font-weight: 500;
 }
 
 .form-container form p a:hover{
    text-decoration: underline;
+}
+
+.form-container form .auth-btn{
+   background-color:#00DEB6 ;
+   color: #000433;
+   font-weight: 400;
+   width: 30%;
+   margin: 0 auto;
 }
 
 
@@ -895,6 +1033,9 @@ section{
 
 .footer{
    background-color: var(--black);
+   border-top: 0.1rem solid var(--detail-color); /* A gold border to give it a luxurious edge */
+   box-shadow: 0 -0.5rem 1rem rgba(0, 0, 0, 0.2);
+
 }
 
 .footer .flex{
@@ -953,7 +1094,7 @@ section{
 }
 
 .footer .credit span{
-   color: var(--main-color);
+   color: #E9C800;
 }
 
 
@@ -1130,7 +1271,7 @@ section{
 
 .btn1 {
    display: block;
-   width: 10%;
+   width: 5%;
    padding: 10px;
    font-size: 16px;
    color: #fff;

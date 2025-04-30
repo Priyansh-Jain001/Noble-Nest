@@ -13,9 +13,9 @@ function otpGeneration(email){
     // Generate a numeric-only OTP
     let otp = otpGenerator.generate(6, {
         digits: true,           // Use digits
-        lowerCaseAlphabets: false, // Exclude lowercase alphabets
-        upperCaseAlphabets: false, // Exclude uppercase alphabets
-        specialChars: false,     // Exclude special characters
+        lowerCaseAlphabets: true, // Exclude lowercase alphabets
+        upperCaseAlphabets: true, // Exclude uppercase alphabets
+        specialChars: true,     // Exclude special characters
     });
     sendMail(otp, email)
     return otp;
@@ -78,52 +78,97 @@ module.exports.getOtp = (req, res)=>{
 }
 
 // post otp
-module.exports.postOtp = async (req, res)=>{
-    let data = {...req.session.formData};
-    console.log("form data is: ", data);
-    let password = data.password;
-    console.log(password);
+// module.exports.postOtp = async (req, res)=>{
+//     let data = {...req.session.formData};
+//     console.log("form data is: ", data);
+//     let password = data.password;
+//     console.log(password);
 
-    let {otp} = req.body;
-    console.log(otp);
+//     let {otp} = req.body;
+//     console.log(otp);
 
-    let otpData = await Otp.findOne({otp: otp});
-    console.log(otpData);
+//     let otpData = await Otp.findOne({otp: otp});
+//     console.log("Otp data", otpData);
 
-    if(otpData == null){
-        req.flash("error", "Entered OTP is Incorrect")
-        res.redirect("/home/user/signup");
-        return;
-    }
-    // console.log("otp fom database :", otpData.otp)
-    // let otpDataBase = otpData.otp;
+//     if(otpData == null){
+//         await Otp.deleteOne({otp: otp});
+//         // console.log("Otp deleted");
+//         req.flash("error", "Entered OTP is Incorrect")
+//         res.redirect("/home/user/signup");
+//         return;
+//     }
+//     // console.log("otp fom database :", otpData.otp)
+//     // let otpDataBase = otpData.otp;
 
-    if( otp == otpData.otp){
+//     if( otp == otpData.otp){
 
-        let newUser = new User({
+//         let newUser = new User({
+//             firstname: data.firstname,
+//             lastname: data.lastname,
+//             email: data.email,
+//             username: data.username,
+//             password: data.password,
+//         })
+
+//         let registerUser = await User.register(newUser, password);
+//         console.log(registerUser);
+
+//         await Otp.deleteOne({otp: otp});
+
+//         // as user get registered it automatically gets logged in
+//         req.login(registerUser, (err)=>{
+//         if(err){
+//             return next(err);
+//         }
+        
+//         req.flash("success", `signed in successfull!`)
+//         res.redirect("/home");
+//     }) 
+//     }
+//     await Otp.deleteOne({otp: otp});
+// }
+
+module.exports.postOtp = async (req, res) => {
+    try {
+        const data = { ...req.session.formData };
+        const password = data.password;
+        const { otp } = req.body;
+
+        const otpData = await Otp.findOne({ otp });
+
+        // Always delete the OTP whether correct or not
+        await Otp.deleteOne({ otp });
+        console.log("otp",otpData);
+
+        if (!otpData) {
+            req.flash("error", "Entered OTP is incorrect");
+            return res.redirect("/home/user/signup");
+        }
+
+        // OTP matched
+        const newUser = new User({
             firstname: data.firstname,
             lastname: data.lastname,
             email: data.email,
             username: data.username,
             password: data.password,
-        })
+        });
 
-        let registerUser = await User.register(newUser, password);
-        console.log(registerUser);
+        const registerUser = await User.register(newUser, password);
 
-        await Otp.deleteOne({otp: otp});
+        req.login(registerUser, (err) => {
+            if (err) return next(err);
+            req.flash("success", "Signed in successfully!");
+            res.redirect("/home");
+        });
 
-        // as user get registered it automatically gets logged in
-        req.login(registerUser, (err)=>{
-        if(err){
-            return next(err);
-        }
-        req.flash("success", `signed in successfull!`)
-        res.redirect("/home");
-    }) 
+    } catch (err) {
+        console.error("Error in postOtp:", err);
+        req.flash("error", "Something went wrong.");
+        res.redirect("/home/user/signup");
     }
+};
 
-}
 
 // render login
 module.exports.renderLogin = (req,res)=>{

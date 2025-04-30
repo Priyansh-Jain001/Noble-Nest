@@ -1,7 +1,7 @@
 <% layout("layouts/boilerplate", { excludeFooter: true }) %>
 
 <body>
-    <h1>Upload Images</h1>
+    <h1 style="text-align: center; margin: 2rem 0;">Upload Images</h1>
 
     <form class="form" method="POST" action="/home/newProp" enctype="multipart/form-data">
         <!-- Basic Details -->
@@ -19,5 +19,5 @@
         <button class="button">Next</button>
     </form>
 
-    <a href="/home"><button class="btn1">Back</button></a>
+    <a href="/home" style="display: flex; justify-content: center; margin-top: 2rem;"><button class="btn1">Back</button></a>
 </body>

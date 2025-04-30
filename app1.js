@@ -22,14 +22,9 @@ const passport = require("passport");
 const LocalStrategy = require("passport-local")
 
 
- 
-
-
-
 // requring the router
 let listings = require("./routers/listing.js");
 let users = require("./routers/user.js");
-
 
 
 const app = express();
@@ -45,7 +40,6 @@ let DB_URL = process.env.ATLASDB_URL;
 // let url = "mongodb://127.0.0.1:27017/RealEstateMain"
 
 
-
 main()
 .then((res)=> {
     console.log("Connection Successful");
@@ -55,7 +49,10 @@ main()
 });
 
 async function main(){
-    await mongoose.connect(DB_URL);
+    // await mongoose.connect(DB_URL);
+    await mongoose.connect(DB_URL, {
+        ssl: true
+      });
 }
 
 const port = 8080;
@@ -133,5 +130,5 @@ app.use((err, req, res, next)=>{
 
 
 app.listen(port, ()=>{
-    console.log("connection successfull");
+    console.log("connection successfull", port);
 })

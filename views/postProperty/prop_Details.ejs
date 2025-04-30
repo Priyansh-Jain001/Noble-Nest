@@ -1,7 +1,7 @@
 <% layout("layouts/boilerplate", {excludeFooter: true}) %>
 
 <body>
-    
+    <h1 style="text-align: center; margin: 2rem 0;"> Details </h1>
     <form method="POST" action="/home/upload_image" class="form">
         <div class="form-group">
             <label for="carpet_area" class="label">Carpet Area (sq.ft)</label>
@@ -70,5 +70,5 @@
           <button type="submit" class="button">Submit</button>
     </form>
 
-    <a href="/home/pricing"><button class="btn1">Back</button></a>
+    <a href="/home/pricing" style="display: flex; justify-content: center; margin-top: 2rem;"><button class="btn1">Back</button></a>
 </body>

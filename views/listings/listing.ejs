@@ -22,20 +22,20 @@
             <% for(data of allListing) { %>
                <div class="box">
                   <div class="admin">
-                     <h3>j</h3>
+                     <h3><%= data.owner.username.charAt(0).toUpperCase() %></h3>
                      <div>
-                        <p>john deo</p>
+                        <p>Owner: <%= data.owner.firstname %></p>
                         <span> <%= data.date %> <span>
                      </div>
                   </div>
 
                   <div class="thumb">
-                     <p class="total-images"><i class="far fa-image"></i><span>4</span></p>
+                     <p class="total-images"><i class="far fa-image"></i><span> <%= data.images.length %></span></p>
                      <p class="type"><span> <%= data.property_type  %></span><span>sale</span></p>
                      
-                     <form action="" method="post" class="save">
+                     <!-- <form action="" method="post" class="save">
                         <button type="submit" name="save" class="far fa-heart"></button>
-                     </form>
+                     </form> -->
                      
                      <img src=<%=data.mainImage.url%> alt="#">
                   </div>
@@ -49,7 +49,7 @@
                      <p><i class="fas fa-maximize"></i><span> <%=data.details.carpetArea%> </span></p>
                   </div>
 
-                  <a href="/home/listings/<%=data._id%>" class="btn">view property</a>
+                  <a href="/home/listings/<%=data._id%>" class="a-btn">Take a look  &nbsp; <i class="fa-solid fa-arrow-right-long" style="color: #11828d;"></i></a>
                </div>
             <% } %>
          </div>

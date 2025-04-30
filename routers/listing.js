@@ -95,4 +95,7 @@ router.post("/upload/:id", upload.single("image[mainImage]"), wrapAsync(listingC
 //My Account
 router.get("/myAccount", isLoggedIn, wrapAsync(listingController.myAccount))
 
+//Booking
+router.get('/listings/:id/booking_status', wrapAsync(listingController.book));
+
 module.exports = router;

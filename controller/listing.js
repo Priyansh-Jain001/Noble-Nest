@@ -17,7 +17,7 @@ module.exports.contact = (req, res)=>{
 }
 
 module.exports.allListing = async (req,res)=>{
-    let allListing = await Listing.find();
+    let allListing = await Listing.find().populate("images").populate("owner");
     console.log(allListing);
 
     res.render('listings/listing.ejs', {allListing});
@@ -254,9 +254,9 @@ module.exports.myAccount = async (req, res)=>{
 module.exports.search = async(req,res)=>{
     let {location, property_type, min_budget, max_budget} = req.body;
     console.log(location, " ", property_type, " ", min_budget, " ", max_budget);
-    let allListing = await Listing.find({"address.city": location, property_type: property_type, pricing: {$gte: min_budget, $lte: max_budget}});
+    let allListing = await Listing.find({"address.city": location, $or: [{property_type: property_type}, { pricing: {$gte: min_budget, $lte: max_budget} }]}).populate("images").populate("owner");
     console.log(allListing);
-    res.render("listings/listing.ejs", {allListing})
+    res.render("listings/listing.ejs", {allListing});
     // res.redirect('/home/listings');
     // res.render("listings/choise.ejs");
 }
@@ -279,4 +279,8 @@ module.exports.rent = async(req, res)=>{
     let allListing = await Listing.find({property_type: "Rent"});
     console.log(allListing);
     res.render("listings/listing.ejs", {allListing});
+}
+
+module.exports.book = async(req,res)=>{
+    res.render("listings/booking.ejs");
 }

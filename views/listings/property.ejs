@@ -26,13 +26,13 @@
        <p class="location"><i class="fas fa-map-marker-alt"></i><span><%= data.address.locality %>, <%= data.address.city %>, <%= data.address.country %> - <%= data.address.pincode %></span></p>
        <div class="info">
           <p><i class="fas fa-tag"></i><span><%= data.pricing %></span></p>
-          <p><i class="fa-solid fa-user fa-lg" style="color: #307fe6;"></i><span> <%= data.owner.username  %>(owner)</span></p>
+          <p><i class="fa-solid fa-user fa-lg" style="color: #307fe6;"></i><span> <%= data.owner.firstname %>(owner)</span></p>
           <p><i class="fa-solid fa-phone" style="color: #3ddb6d;"></i></i><a href="tel:<%= data.contact_no %>" > <%= data.contact_no %> </a></p>
           <p><i class="fa-solid fa-building" style="color: #6942d7;"></i><span> <%= data.property_type %> </span></p>
           <p><i class="fa-solid fa-house" style="color: #ecc022;"></i><span><%= data.property_for%></span></p>
           <p><i class="fa-solid fa-calendar" style="color: #1a70e0;"></i><span> <%= data.date %></span></p>
        </div>
-       <h3 class="title">details</h3>
+       <h3 class="title">Details</h3>
        <div class="flex">
           <div class="box">
              <p><i>Rooms :</i><span> <%= data.details.rooms %></span></p>
@@ -48,7 +48,7 @@
              <p><i>Loan :</i><span> <%= data.details.loan %> </span></p>
           </div>
        </div>
-       <h3 class="title">amenities</h3>
+       <h3 class="title">Amenities</h3>
        <div class="flex">
           <div class="box">
              <p><i class="fas fa-check"></i><span>Lifts</span></p>
@@ -69,9 +69,11 @@
        </div>
        <h3 class="title">Description</h3>
        <p class="description"> <%= data.description %> </p>
-       <form action="" method="post">
-          <input type="submit" value="save property" name="save" class="inline-btn">
-      </form>
+
+       <form action="/home/listings/<%= data._id %>/booking_status" method="get">
+         <input type="submit" value="Book Property" class="inline-btn">
+     </form>
+     
 
       <% if(currUser && currUser._id.equals(data.owner._id) ){ %>
          <div class="utility-btns">
