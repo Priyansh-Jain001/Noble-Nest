@@ -24,7 +24,7 @@
                   <div class="admin">
                      <h3><%= data.owner.username.charAt(0).toUpperCase() %></h3>
                      <div>
-                        <p>Owner: <%= data.owner.firstname %></p>
+                        <p>Presented by <%= data.owner.firstname %></p>
                         <span> <%= data.date %> <span>
                      </div>
                   </div>
@@ -46,7 +46,7 @@
                   <div class="flex">
                      <p><i class="fas fa-bed"></i><span> <%=data.details.bedroom%> </span></p>
                      <p><i class="fas fa-bath"></i><span> <%=data.details.bathroom%> </span></p>
-                     <p><i class="fas fa-maximize"></i><span> <%=data.details.carpetArea%> </span></p>
+                     <p><i class="fas fa-maximize"></i><span> <%=data.details.carpetArea%>sq.ft </span></p>
                   </div>
 
                   <a href="/home/listings/<%=data._id%>" class="a-btn">Take a look  &nbsp; <i class="fa-solid fa-arrow-right-long" style="color: #11828d;"></i></a>
