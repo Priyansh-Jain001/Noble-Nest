@@ -19,7 +19,7 @@ etc.
 ## Installation
 Follow these steps to set up and run the project locally:
 
-## #Pre-requisites
+### Pre-requisites
 - Node.js (v16 or later)
 - npm or yarn
 
